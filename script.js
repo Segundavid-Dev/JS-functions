@@ -53,18 +53,43 @@
 // since functions are values, they are a couple interesting thing we could do with functions
 // 1 -> pass a function into another function call as a value
 // 2 -> return a function from functions
-const btn = document.querySelector(".btn");
-const greet = () => {
-  alert("Hey David");
+// const btn = document.querySelector(".btn");
+// const greet = () => {
+//   alert("Hey David");
+// };
+
+// btn.addEventListener("click", greet);
+
+// // Higher Order Functions -> These are functions that either receives other functions as an argument or they return other functions
+
+// function count() {
+//   let counter = 0;
+//   return function () {
+//     counter++;
+//   };
+// }
+
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
 };
 
-btn.addEventListener("click", greet);
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
+};
 
-// Higher Order Functions -> These are functions that either receives other functions as an argument or they return other functions
+// HIGHER ORDER FUNCTIONS
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by : ${fn.name}`);
+};
 
-function count() {
-  let counter = 0;
-  return function () {
-    counter++;
-  };
-}
+transformer("javaScript is the best!", upperFirstWord);
+
+// Javascript uses call back all the time
+const hello = () => {
+  console.log("hello👋");
+};
+
+document.body.addEventListener("click", hello);
