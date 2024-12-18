@@ -93,3 +93,29 @@ const hello = () => {
 };
 
 document.body.addEventListener("click", hello);
+
+// function that returns a functions
+// const greet = function (greeting) {
+//   // returns a new function
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const greetHey = greet("Hey");
+// greetHey("Jonas");
+// greetHey("Stephen");
+
+// challenge : rewrite the function usign the arrow funcrtions
+
+const greet = (greeting) => {
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+// call the functions
+const greetHey = greet("Hello");
+greetHey("Segun");
+greetHey("David");
+greetHey("Olasunkanmi");
