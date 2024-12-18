@@ -27,23 +27,44 @@
 // // A unique thing to notice is that in the ES6 syntax, we can use the value of our previous parameter in latter parameter
 // // Another thing to note is that we cannot skip arguments
 
-const flight = "LH234";
-const david = {
-  name: "david segun",
-  passport: "23456789",
+// const flight = "LH234";
+// const david = {
+//   name: "david segun",
+//   passport: "23456789",
+// };
+
+// const checkIn = function (flightNum, Passenger) {
+//   flightNum = "LH999";
+//   Passenger.name = "Mr. " + Passenger.name;
+
+//   if (Passenger.passport === "23456789") {
+//     alert("Check in!");
+//   } else {
+//     alert("wrong passport!");
+//   }
+// };
+
+// checkIn(flight, david);
+// console.log(flight);
+// console.log(david);
+
+// FIRST CLASS FUNCTIONS AND HIGH ORDER FUNCTION -> javascript treats functions as first class citizens, this means that functions are simply values [functions are another "type" of object]
+
+// since functions are values, they are a couple interesting thing we could do with functions
+// 1 -> pass a function into another function call as a value
+// 2 -> return a function from functions
+const btn = document.querySelector(".btn");
+const greet = () => {
+  alert("Hey David");
 };
 
-const checkIn = function (flightNum, Passenger) {
-  flightNum = "LH999";
-  Passenger.name = "Mr. " + Passenger.name;
+btn.addEventListener("click", greet);
 
-  if (Passenger.passport === "23456789") {
-    alert("Check in!");
-  } else {
-    alert("wrong passport!");
-  }
-};
+// Higher Order Functions -> These are functions that either receives other functions as an argument or they return other functions
 
-checkIn(flight, david);
-console.log(flight);
-console.log(david);
+function count() {
+  let counter = 0;
+  return function () {
+    counter++;
+  };
+}
