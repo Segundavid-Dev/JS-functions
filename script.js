@@ -162,3 +162,13 @@ const addTaxRate = function (rate) {
 };
 
 console.log(addTaxRate(0.2)(300));
+
+// immediately invoked functions in javascript -> sometimes in javascript, we need a function that is only executed once and not executed again (disappears)
+// IIFE Pattern -> Immediately invoked function execution pattern
+(function () {
+  console.log("this function will run once");
+})();
+
+(() => {
+  console.log("this function will RUN once too!");
+})();
