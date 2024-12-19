@@ -119,3 +119,46 @@ const greetHey = greet("Hello");
 greetHey("Segun");
 greetHey("David");
 greetHey("Olasunkanmi");
+
+// call and apply methods
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+  book: function (flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, "Jonas Schmedtmann");
+lufthansa.book(635, "John Smith");
+console.log(lufthansa);
+
+const euroWings = {
+  name: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+book.call(euroWings, 23, "Sarah Williams");
+
+// call method
+// apply method
+// bind method
+
+// with event listeners
+lufthansa.planes = 300;
+
+// function returning another function challenge
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+console.log(addTaxRate(0.2)(300));

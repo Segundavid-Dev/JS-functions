@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Challenge</title>
+  </head>
+  <body>
+    <p>Coding challenge</p>
+    <button class="answer__poll">Answer Poll</button>
+    <script>
+      const poll = {
+        question: "what is your favourite programming language ?",
+        options: ["0: JavaScript", "1: Python", "2: Rust", "3: c++"],
+        answers: new Array(4).fill(0),
+        registerNewAnser: function () {
+          const userAnwser = Number(
+            prompt(`${this.question} \n${this.options.join("\n")}`)
+          );
+          if (typeof userAnwser === "number" && userAnwser <= 3) {
+            // increase the value at position [array_index] by 1
+            this.answers[userAnwser] += 1;
+            console.log(this.answers);
+          } else {
+            console.log("badd range");
+          }
+        },
+      };
+
+      const answerPoll = document.querySelector(".answer__poll");
+
+      answerPoll.addEventListener("click", function () {
+        // call the object method
+        poll.registerNewAnser();
+      });
+    </script>
+  </body>
+</html>
