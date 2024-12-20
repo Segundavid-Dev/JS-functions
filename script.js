@@ -172,3 +172,18 @@ console.log(addTaxRate(0.2)(300));
 (() => {
   console.log("this function will RUN once too!");
 })();
+
+// Closures
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+console.log(booker());
+console.log(booker());
+console.log(booker());
